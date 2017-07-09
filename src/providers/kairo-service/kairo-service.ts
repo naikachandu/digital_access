@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class KairoServiceProvider {
 apiUrl ='https://api.kairos.com/enroll';
-apiVerifyUrl='https://api.kairos.com/verify';
+apiVerifyUrl='https://api.kairos.com/recognize';
 data:any;
   constructor(public http: Http) {
     console.log('Hello KairoServiceProvider Provider');
@@ -45,7 +45,7 @@ getUsers(img:string,name:string) {
   });
 }
 
-VerifyUsers(img:string,name:string) {
+VerifyUsers(img:string) {
   if (this.data) {
     return Promise.resolve(this.data);
   }
@@ -59,8 +59,7 @@ VerifyUsers(img:string,name:string) {
   opt=new RequestOptions({headers : myHeader});
 
   let postParams={
-      "image":img,
-    "subject_id":name,
+      "image":img,    
     "gallery_name":"MyGallery"
   }
 

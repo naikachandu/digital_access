@@ -10,7 +10,7 @@ export class HomePage {
   public base64Image: string;
   name: string = null;
   constructor(private cam: Camera, public service: KairoServiceProvider) {
-    
+    //this.base64Image="http://media.kairos.com/kairos-elizabeth.jpg";
    }
 
   takePicture() {
@@ -39,12 +39,12 @@ export class HomePage {
     console.log(this.name + "name" + this.base64Image);
   }
    verify() {
-    if (this.name != null) {
-      this.service.VerifyUsers(this.base64Image,this.name).
+    
+      this.service.VerifyUsers(this.base64Image).
         then(data => {
           console.log(data);
         })
-    }
+    
     console.log(this.name + "name" + this.base64Image);
   }
   

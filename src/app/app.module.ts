@@ -4,12 +4,13 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Camera } from '@ionic-native/camera';
+import { CameraPreview } from '@ionic-native/camera-preview';
 
+import { TextToSpeech } from '@ionic-native/text-to-speech';
+ 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { KairoServiceProvider } from '../providers/kairo-service/kairo-service';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -26,8 +27,9 @@ import { KairoServiceProvider } from '../providers/kairo-service/kairo-service';
     HomePage
   ],
   providers: [
-    StatusBar,
-    Camera,
+    StatusBar,    
+    CameraPreview,
+    TextToSpeech,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     KairoServiceProvider

@@ -3,18 +3,25 @@
     Home
   </ion-title>
 </ion-navbar>
-
+ 
 <ion-content padding>
-         
+ 
       <img style="width: 100%; height: 100%;" src={{base64Image}} *ngIf="base64Image">
-      <ion-item>
+      
+      <div margin-top class="btn-btm">
+        <ion-item margin-bottom *ngIf="nameField">
         <ion-label color="primary" floating>Enter Name</ion-label>
         <ion-input clearInput [(ngModel)]="name"></ion-input>
       </ion-item>
-      <div margin-top>
-       <button ion-button round (click)="takePicture()">Take a Picture</button>
-      <button  ion-button round (click)="save()">Save</button>
-      <button  ion-button round (click)="verify()">Verify</button> 
+      
+       <button *ngIf="nameField" ion-button round (click)="save()">Save</button>
+      <button  *ngIf="verifybtn" ion-button round (click)="verify()">Verify</button>
+      
+       <button float-right ion-button round (click)="takePicture()" *ngIf="mob_cam">Take a Picture</button>
+       <button float-right ion-button round (click)="enableCamera()" *ngIf="!mob_cam">Capture Again</button>
       </div>     
-    
+ 
 </ion-content>
+ 
+ 
+ 
